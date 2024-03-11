@@ -1,6 +1,8 @@
 import { useForm } from "react-hook-form";
-import styles from "./ResetPassword.module.css";
+import styles from "./index.module.css";
 import messages from "./messages";
+import AuthLayout from "../AuthLayout/index";
+import Logo from "../../unknown/Logo/index";
 
 type FormData = {
   password: string;
@@ -24,8 +26,8 @@ const ResetPassword: React.FC = () => {
   const newPassword = watch("password");
 
   return (
-    <div className={styles.resetPasswordContainer}>
-      <h1>Qencode</h1>
+    <AuthLayout>
+      <Logo />
       <h2>{messages.createNewPassword}</h2>
       <form onSubmit={onSubmit} noValidate>
         <input
@@ -65,7 +67,7 @@ const ResetPassword: React.FC = () => {
           {messages.resetPasswordButton}
         </button>
       </form>
-    </div>
+    </AuthLayout>
   );
 };
 

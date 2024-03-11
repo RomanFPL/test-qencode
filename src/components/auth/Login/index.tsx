@@ -3,6 +3,8 @@ import GithubIcon from "../../icons/GithubIcon";
 import GoogleIcon from "../../icons/GoogleIcon";
 import styles from "./index.module.css";
 import messages from "./messages";
+import AuthLayout from "../AuthLayout/index";
+import Logo from "../../unknown/Logo/index";
 
 type FormData = {
   email: string;
@@ -23,8 +25,8 @@ const Login: React.FC = () => {
   });
 
   return (
-    <div className={styles.loginContainer}>
-      <h1>{messages.loginSubtitle}</h1>
+    <AuthLayout>
+      <Logo />
       <p>{messages.loginTitle}</p>
       <div className={styles.authButtons}>
         <button className={styles.googleButton}>
@@ -59,7 +61,7 @@ const Login: React.FC = () => {
         {messages.signupInvitation}{" "}
         <a href="/signup">{messages.signupLinkText}</a>
       </div>
-    </div>
+    </AuthLayout>
   );
 };
 
