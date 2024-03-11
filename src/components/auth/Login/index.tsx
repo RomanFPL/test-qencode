@@ -1,30 +1,36 @@
-import GithubIcon from '../../icons/GithubIcon';
-import GoogleIcon from '../../icons/GoogleIcon';
-import styles from './index.module.css'
+import GithubIcon from "../../icons/GithubIcon";
+import GoogleIcon from "../../icons/GoogleIcon";
+import styles from "./index.module.css";
+import messages from "./messages";
 
 const Login = () => {
   return (
     <div className={styles.loginContainer}>
-      <h1>Qencode</h1>
-      <p>Log in to your account</p>
+      <h1>{messages.loginSubtitle}</h1>
+      <p>{messages.loginTitle}</p>
       <div className={styles.authButtons}>
         <button className={styles.googleButton}>
-          <GoogleIcon/>
-          Google
+          <GoogleIcon />
+          {messages.googleButtonText}
         </button>
         <button className={styles.githubButton}>
-        <GithubIcon/>
-          GitHub
+          <GithubIcon />
+          {messages.githubButtonText}
         </button>
       </div>
-      <div className={styles.divider}>OR</div>
-      <input type="email" placeholder="Work email" className={styles.input} />
-      <button className={styles.loginButton}>Log in to Qencode</button>
+      <div className={styles.divider}>{messages.dividerText}</div>
+      <input
+        type="email"
+        placeholder={messages.emailPlaceholder}
+        className={styles.input}
+      />
+      <button className={styles.loginButton}>{messages.loginButtonText}</button>
       <div className={styles.signupLink}>
-        Is your company new to Qencode? <a href="/signup">Sign up</a>
+        {messages.signupInvitation}{" "}
+        <a href="/signup">{messages.signupLinkText}</a>
       </div>
     </div>
   );
-}
+};
 
-export default Login
+export default Login;
