@@ -1,7 +1,6 @@
-import React from "react";
 import { useForm } from "react-hook-form";
-import styles from "./ResetPassword.module.css"; // Make sure you have this CSS file
-import messages from "./messages"; // Assuming you have messages for Reset Password
+import styles from "./ResetPassword.module.css";
+import messages from "./messages";
 
 type FormData = {
   password: string;
@@ -31,7 +30,7 @@ const ResetPassword: React.FC = () => {
       <form onSubmit={onSubmit} noValidate>
         <input
           type="password"
-          placeholder={messages.passwordPlaceholder}
+          placeholder="Password"
           {...register("password", {
             required: "You must specify a password",
             minLength: {
@@ -49,7 +48,7 @@ const ResetPassword: React.FC = () => {
 
         <input
           type="password"
-          placeholder={messages.confirmPasswordPlaceholder}
+          placeholder="Confirm Password"
           {...register("confirmPassword", {
             validate: (value) =>
               value === newPassword || "The passwords do not match",
