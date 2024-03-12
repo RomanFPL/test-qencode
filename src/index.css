@@ -5,9 +5,22 @@
 @import url('https://cdn.jsdelivr.net/npm/normalize.css/normalize.css');
 
 
+* {
+  font-family: "Basis Grotesque Pro";
+  font-style: normal;
+}
+
 :root {
   --color-blue: #316FEA;
   --color-dark-blue: #060E1E;
   --color-black: #1A1919;
   --color-gray: #D3D8DC;
+  --color-error: #f64a4a;
+}
+
+
+
+p {
+  font-weight: 400;
+  font-size: 15px;
 }

@@ -5,6 +5,7 @@ import ForgotPassword from "../components/auth/ForgotPassword";
 import ResetPassword from "../components/auth/ForgotPassword";
 import ProtectedRoute from "./ProtectedRoute";
 import UnprotectedRoute from "./UnprotectedRoute";
+import NotFound from "../components/unknown/notFound/index";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,14 @@ const router = createBrowserRouter([
     element: (
       <UnprotectedRoute>
         <ResetPassword />
+      </UnprotectedRoute>
+    ),
+  },
+  {
+    path: "*",
+    element: (
+      <UnprotectedRoute>
+        <NotFound />
       </UnprotectedRoute>
     ),
   },

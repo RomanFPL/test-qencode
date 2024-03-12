@@ -22,7 +22,6 @@ const ResetPassword: React.FC = () => {
     // Call API to reset password
   });
 
-  // This is used for the password confirmation validation
   const newPassword = watch("password");
 
   return (

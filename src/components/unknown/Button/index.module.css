@@ -1,0 +1,34 @@
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    gap: 10px
+}
+
+.buttonOutline {
+    border: 1.2px solid var(--color-gray);
+    background-color: transparent;
+}
+
+.buttonOutline:hover {
+    background-color: var(--color-gray);
+}
+
+.buttonFill {
+    width: 100%;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    background-color: #0366d6;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.buttonFill:hover {
+    background-color: #0056b3;
+}

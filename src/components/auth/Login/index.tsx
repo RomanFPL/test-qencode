@@ -5,6 +5,9 @@ import styles from "./index.module.css";
 import messages from "./messages";
 import AuthLayout from "../AuthLayout/index";
 import Logo from "../../unknown/Logo/index";
+import Button from "../../unknown/Button/index";
+import classNames from "classNames";
+import { Link } from "react-router-dom";
 
 type FormData = {
   email: string;
@@ -26,17 +29,19 @@ const Login: React.FC = () => {
 
   return (
     <AuthLayout>
-      <Logo />
-      <p>{messages.loginTitle}</p>
+      <div className={styles.logoWrapper}>
+        <Logo />
+      </div>
+      <p className={styles.title}>{messages.loginTitle}</p>
       <div className={styles.authButtons}>
-        <button className={styles.googleButton}>
+        <Button>
           <GoogleIcon />
           {messages.googleButtonText}
-        </button>
-        <button className={styles.githubButton}>
+        </Button>
+        <Button>
           <GithubIcon />
           {messages.githubButtonText}
-        </button>
+        </Button>
       </div>
       <div className={styles.divider}>{messages.dividerText}</div>
       <form onSubmit={onSubmit} noValidate>
@@ -50,16 +55,22 @@ const Login: React.FC = () => {
               message: "Please enter a valid email address",
             },
           })}
-          className={`${styles.input} ${errors.email ? styles.inputError : ""}`}
+          className={styles.input}
         />
-        {errors.email && <p className={styles.error}>{errors.email.message}</p>}
-        <button type="submit" className={styles.loginButton}>
+        <p
+          className={classNames(styles.error, {
+            [styles.showError]: errors.email,
+          })}
+        >
+          {errors?.email?.message}
+        </p>
+        <Button view="fill" className={styles.loginButton}>
           {messages.loginButtonText}
-        </button>
+        </Button>
       </form>
       <div className={styles.signupLink}>
-        {messages.signupInvitation}{" "}
-        <a href="/signup">{messages.signupLinkText}</a>
+        {messages.signupInvitation}
+        <Link to="/signup">{messages.signupLinkText}</Link>
       </div>
     </AuthLayout>
   );
