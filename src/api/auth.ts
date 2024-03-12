@@ -74,10 +74,10 @@ export async function resetPassword(
       "/password-reset",
       { email }
     );
-    return response.data;
+    return response?.data;
   } catch (error) {
     throw new Error(
-      (error as any).response.data.detail || "Failed to reset password"
+      (error as any).response?.data?.detail || "Failed to reset password"
     );
   }
 }

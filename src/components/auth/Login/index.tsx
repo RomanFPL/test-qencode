@@ -3,9 +3,9 @@ import GithubIcon from "../../unknown/icons/GithubIcon";
 import GoogleIcon from "../../unknown/icons/GoogleIcon";
 import styles from "./index.module.css";
 import messages from "./messages";
-import AuthLayout from "../AuthLayout/index";
-import Logo from "../../unknown/Logo/index";
-import Button from "../../unknown/Button/index";
+import AuthLayout from "../AuthLayout";
+import Logo from "../../unknown/Logo";
+import Button from "../../unknown/Button";
 import classNames from "classNames";
 import { Link } from "react-router-dom";
 import { loginUser } from "../../../api/auth";
@@ -111,7 +111,7 @@ const Login: React.FC = () => {
               >
                 {errors?.password?.message}
               </p>
-              <Link to="/signup" className={styles.forgotLink}>
+              <Link to="/forgot-password" className={styles.forgotLink}>
                 {messages.forgotPassword}
               </Link>
             </div>

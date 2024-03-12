@@ -16,6 +16,7 @@ export interface RefreshTokenResponse {
 
 export interface PasswordResetResponse {
   detail: string;
+  error: number;
 }
 
 export interface SetNewPasswordResponse {
