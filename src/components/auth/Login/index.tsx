@@ -8,6 +8,7 @@ import Logo from "../../unknown/Logo/index";
 import Button from "../../unknown/Button/index";
 import classNames from "classNames";
 import { Link } from "react-router-dom";
+import { loginUser } from "../../../api/auth";
 
 type FormData = {
   email: string;
@@ -18,16 +19,28 @@ const Login: React.FC = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    setError,
+    formState: { errors, dirtyFields },
   } = useForm<FormData>({
     mode: "onChange",
   });
 
-  const onSubmit = handleSubmit((data) => {
-    console.log(data);
-  });
-
-  const isLoginError = errors.email;
+  const onSubmit = async (data: FormData) => {
+    try {
+      const response = await loginUser({
+        email: data.email,
+        password: data.password,
+      });
+      console.log("Login successful:", response);
+    } catch (error: any) {
+      console.error("Login failed:", error.message);
+      setError("email", {
+        type: "manual",
+        message: "Invalid credentials or other login error.",
+      });
+    }
+  };
+  const isPasswordAvailable = dirtyFields.email && !errors.email;
 
   return (
     <AuthLayout>
@@ -46,10 +59,10 @@ const Login: React.FC = () => {
         </Button>
       </div>
       <div className={styles.divider}>{messages.dividerText}</div>
-      <form onSubmit={onSubmit} noValidate>
+      <form onSubmit={handleSubmit(onSubmit)} noValidate>
         <div
           className={classNames(styles.inputWrapper, {
-            [styles.inputValid]: !isLoginError,
+            [styles.inputValid]: isPasswordAvailable,
           })}
         >
           <input
@@ -73,7 +86,7 @@ const Login: React.FC = () => {
           </p>
           <div
             className={classNames(styles.wrapPassword, {
-              [styles.showPassword]: !isLoginError,
+              [styles.showPassword]: isPasswordAvailable,
             })}
           >
             <input
