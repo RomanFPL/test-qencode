@@ -9,6 +9,8 @@ const messages = {
   loginButtonText: "Log in to Qencode",
   signupInvitation: "Is your company new to Qencode? ",
   signupLinkText: "Sign up",
+  passwordPlaceholder: "Password",
+  forgotPassword: "Forgot password",
 };
 
 export default messages;

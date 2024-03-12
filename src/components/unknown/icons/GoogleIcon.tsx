@@ -1,4 +1,4 @@
-const GoogleIcon:React.FC<React.SVGProps<SVGSVGElement>> = (rest) => {
+const GoogleIcon: React.FC<React.SVGProps<SVGSVGElement>> = (rest) => {
   return (
     <svg
       width="18"

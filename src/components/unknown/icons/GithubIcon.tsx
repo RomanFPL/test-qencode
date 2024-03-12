@@ -1,4 +1,4 @@
-const GithubIcon:React.FC<React.SVGProps<SVGSVGElement>> = (rest) => {
+const GithubIcon: React.FC<React.SVGProps<SVGSVGElement>> = (rest) => {
   return (
     <svg
       width="21"
